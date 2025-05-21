@@ -1,3 +1,76 @@
+// NutriFlow App - Mock JS Structure
+
+// ======== App State ========
+const state = {
+  currentPage: 'main',  // 'main', 'diary', 'analytics', etc.
+  userData: {},         // Placeholder for user-related data
+  foodLog: [],          // Placeholder for food log entries
+  settings: {}          // Placeholder for app settings
+};
+
+// ======== UI Selectors ========
+const selectors = {
+  navMain: document.getElementById("nav-main"),
+  navDiary: document.getElementById("nav-diary"),
+  navAnalytics: document.getElementById("nav-analytics"),
+  contentArea: document.getElementById("content"),
+};
+
+// ======== Navigation Handlers ========
+function switchPage(pageName) {
+  state.currentPage = pageName;
+  // just a placeholder for page rendering logic
+  console.log(`Switched to page: ${pageName}`);
+}
+
+// ======== Mock Event Bindings ========
+function bindEvents() {
+  if (selectors.navMain) {
+    selectors.navMain.addEventListener("click", () => switchPage('main'));
+  }
+  if (selectors.navDiary) {
+    selectors.navDiary.addEventListener("click", () => switchPage('diary'));
+  }
+  if (selectors.navAnalytics) {
+    selectors.navAnalytics.addEventListener("click", () => switchPage('analytics'));
+  }
+}
+
+// ======== Initialization ========
+function initApp() {
+  console.log("NutriFlow JS initialized.");
+  bindEvents();
+}
+
+// Call init when the DOM is ready
+document.addEventListener("DOMContentLoaded", initApp);
+
+// ======== Regex Utilities (Mock) ========
+
+// Checks if a string is a valid food name (letters and spaces only)
+function isValidFoodName(name) {
+  const regex = /^[A-Za-z\s]+$/;
+  return regex.test(name);
+}
+
+// Extracts numbers (e.g. calories) from a string
+function extractNumbers(input) {
+  const regex = /\d+/g;
+  return input.match(regex); // returns an array of numbers as strings
+}
+
+// Finds dates in format YYYY-MM-DD
+function findDates(input) {
+  const regex = /\b\d{4}-\d{2}-\d{2}\b/g;
+  return input.match(regex);
+}
+
+// Mock test calls (won't do anything visible)
+console.log("Check food name:", isValidFoodName("Grilled Chicken")); // true
+console.log("Extract numbers:", extractNumbers("Meal has 350 calories and 20g protein")); // ["350", "20"]
+console.log("Find dates:", findDates("Logged on 2025-05-21, last update 2025-05-18")); // ["2025-05-21", "2025-05-18"]
+
+
 document.addEventListener("DOMContentLoaded", () => {
   showSection("main");
   updateMainPage();
@@ -85,6 +158,13 @@ showSection("main");
 
 
 
+
+
+
+
+
+
+// DON'T TOUCH THIS, please
 
 // ==== datele tale, direct în JS ====
 const foods = [
