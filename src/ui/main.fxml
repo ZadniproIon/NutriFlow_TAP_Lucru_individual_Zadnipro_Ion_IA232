@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.myapp.nutrition.ui.MainController"
+      stylesheets="@styles/style.css"
+      spacing="16">
+
+    <!-- padding explicit ca Insets -->
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+
+    <!-- Dashboard numeric -->
+    <Label fx:id="lblDailyTotal"   text="Calorii: –" />
+    <Label fx:id="lblDailyProtein" text="Proteine: –" />
+    <Label fx:id="lblDailyCarbs"   text="Carbohidrați: –" />
+    <Label fx:id="lblDailyFats"    text="Grăsimi: –" />
+    <Label fx:id="lblWater"        text="Apă: – ml"/>
+
+    <!-- ▶ Macros HBox -->
+    <HBox fx:id="macrosBox"
+          spacing="24"
+          alignment="CENTER">
+
+        <!-- Carbohydrates card -->
+        <VBox alignment="CENTER" spacing="8">
+            <Label text="Carbohidrați" styleClass="macro-title"/>
+            <StackPane>
+                <ProgressIndicator fx:id="piCarbs"
+                                   progress="0"
+                                   prefWidth="100" prefHeight="100"
+                                   styleClass="ring-carbs"/>
+
+            </StackPane>
+            <Label fx:id="lblCarbsLeft"
+                   text="0 g left"
+                   styleClass="macro-footnote"/>
+        </VBox>
+
+        <!-- Fat card -->
+        <VBox alignment="CENTER" spacing="8">
+            <Label text="Grăsimi" styleClass="macro-title"/>
+            <StackPane>
+                <ProgressIndicator fx:id="piFat"
+                                   progress="0"
+                                   prefWidth="300" prefHeight="300"
+                                   styleClass="ring-fat"/>
+            </StackPane>
+            <Label fx:id="lblFatLeft"
+                   text="0 g left"
+                   styleClass="macro-footnote"/>
+        </VBox>
+
+        <!-- Protein card -->
+        <VBox alignment="CENTER" spacing="8">
+            <Label text="Proteine" styleClass="macro-title"/>
+            <StackPane>
+                <ProgressIndicator fx:id="piProtein"
+                                   progress="0"
+                                   prefWidth="100" prefHeight="100"
+                                   styleClass="ring-protein"/>
+
+            </StackPane>
+            <Label fx:id="lblProteinLeft"
+                   text="0 g left"
+                   styleClass="macro-footnote"/>
+        </VBox>
+
+    </HBox>
+
+    <!-- Butoane de acțiune -->
+    <Button fx:id="btnAddWater"      text="Adaugă apă"/>
+    <Button fx:id="btnAddMeal"       text="Adaugă masă"/>
+    <Button fx:id="btnManageFoods"   text="Gestionează alimente"/>
+    <Button fx:id="btnViewReport"    text="Vezi raport săptămânal"/>
+    <Button fx:id="btnSettings"      text="Setări"/>
+
+</VBox>

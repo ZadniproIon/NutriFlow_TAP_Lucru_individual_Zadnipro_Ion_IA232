@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NutriFlow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar navigation -->
+    <aside class="sidebar">
+        <h1 class="logo">NutriFlow</h1>
+
+        <nav class="nav">
+            <div class="nav-item active" data-target="main"><span class="icon">🏠</span><span>Main</span></div>
+            <div class="nav-item" data-target="diary"><span class="icon">📋</span><span>Diary</span></div>
+            <div class="nav-item" data-target="analytics"><span class="icon">📈</span><span>Analytics</span></div>
+            <div class="nav-item" data-target="fooddb"><span class="icon">🍔</span><span>Food&nbsp;database</span></div>
+            <div class="nav-item" data-target="exercise"><span class="icon">🏃</span><span>Exercise&nbsp;&amp;&nbsp;steps</span></div>
+            <div class="nav-item" data-target="settings"><span class="icon">⚙️</span><span>Settings</span></div>
+        </nav>
+    </aside>
+
+    <!-- Main content area -->
+    <div class="content">
+        <header class="page-header">
+            <h2 id="today-heading"></h2>
+        </header>
+
+        <!-- ===== Pages ===== -->
+        <section id="main" class="page active">
+            <div class="cards-grid">
+                <div class="card calories-card">
+                    <h3>Calories</h3>
+                    <p>Remaining = Goal – Food + Exercise</p>
+                    <div class="calories-ring">
+                        <span class="calories-value">634</span>
+                        <span class="calories-label">Remaining</span>
+                    </div>
+
+                    <ul class="calories-breakdown">
+                        <li><span class="flag">🏁</span> Base&nbsp;goal <strong>1980</strong></li>
+                        <li><span class="icon-food">🍽️</span> Food <strong>1346</strong></li>
+                        <li><span class="icon-exercise">🏋️</span> Exercise <strong>0</strong></li>
+                    </ul>
+                </div>
+
+                <div class="card macros-card">
+                    <h3>Macros</h3>
+                    <div class="macro">
+                        <span class="macro-name">Protein</span>
+                        <span class="macro-value">158/247g</span>
+                        <div class="progress"><div class="bar" style="width:64%"></div></div>
+                    </div>
+                    <div class="macro">
+                        <span class="macro-name">Carbs</span>
+                        <span class="macro-value">158/247g</span>
+                        <div class="progress"><div class="bar" style="width:64%"></div></div>
+                    </div>
+                    <div class="macro">
+                        <span class="macro-name">Fat</span>
+                        <span class="macro-value">158/247g</span>
+                        <div class="progress"><div class="bar" style="width:64%"></div></div>
+                    </div>
+                </div>
+
+                <div class="card steps-card">
+                    <div class="card-header">
+                        <h3>Steps</h3>
+                        <button class="card-action">➕</button>
+                    </div>
+                    <p class="steps-count"><span class="icon">🚶</span> 128</p>
+                    <p>Goal: 10,000 steps</p>
+                    <div class="progress"><div class="bar" style="width:1.2%"></div></div>
+                </div>
+
+                <div class="card exercise-card">
+                    <div class="card-header">
+                        <h3>Exercise</h3>
+                        <button class="card-action">➕</button>
+                    </div>
+                    <p>🔥 235&nbsp;cal</p>
+                    <p>⏱ 1:30&nbsp;hr</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="diary" class="page">
+            <div class="diary-grid">
+                <div class="diary-summary">
+                    <h3>Calories remaining</h3>
+                    <p class="summary-equation">
+                        1980 Goal – 1500 Food + 350 Exercise = <strong>830 Remaining</strong>
+                    </p>
+
+                    <div class="meal">
+                        <h4>Breakfast <span class="meal-cal">990 cal</span></h4>
+                        <ul>
+                            <li>Oats (100g) – 599 cal<br><small>Protein 12g, Carbs 75g, Fats 4g</small></li>
+                            <li>Chicken breast (250g) – 260 cal<br><small>Protein 12g, Carbs 75g, Fats 4g</small></li>
+                        </ul>
+                    </div>
+
+                    <div class="meal">
+                        <h4>Lunch</h4>
+                        <!-- … Repeat structure … -->
+                    </div>
+
+                    <div class="meal">
+                        <h4>Dinner</h4>
+                    </div>
+
+                    <div class="meal">
+                        <h4>Snacks</h4>
+                    </div>
+                </div>
+
+                <div class="diary-forms">
+                    <form class="add-food-box">
+                        <h3>Add food</h3>
+                        <div class="tabs">
+                            <button type="button" class="tab active">Search</button>
+                            <button type="button" class="tab">Quick add</button>
+                        </div>
+
+                        <select><option>Select meal</option></select>
+                        <select><option>Select food</option></select>
+                        <input type="number" placeholder="Weight (grams)">
+
+                        <div class="nutrients-preview">
+                            <p>Protein: 15g</p>
+                            <p>Carbs: 89g</p>
+                            <p>Fats: 11g</p>
+                            <p>Calories: 599 cal</p>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Add food</button>
+                    </form>
+
+                    <form class="quick-add-box">
+                        <h3>Add food</h3>
+                        <div class="tabs">
+                            <button type="button" class="tab">Search</button>
+                            <button type="button" class="tab active">Quick add</button>
+                        </div>
+
+                        <select><option>Select meal</option></select>
+                        <input type="text" placeholder="Food/meal name">
+                        <input type="number" placeholder="Protein (grams)">
+                        <input type="number" placeholder="Carbs (grams)">
+                        <input type="number" placeholder="Fats (grams)">
+                        <input type="number" placeholder="Weight (grams)">
+                        <p class="quick-add-cal">Calories: 900 cal</p>
+                        <button type="submit" class="btn-primary">Add food</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="analytics" class="page">
+            <div class="analytics-controls card">
+                <h3>Select period</h3>
+                <div class="period-buttons">
+                    <button class="btn-primary active">7 days</button>
+                    <button class="btn-secondary">14 days</button>
+                    <button class="btn-secondary">30 days</button>
+                    <button class="btn-secondary">Custom</button>
+                    <input type="number" placeholder="Enter the amount of days">
+                </div>
+            </div>
+
+            <div class="analytics-section card">
+                <h3>Calories</h3>
+                <div class="chart-placeholder"></div>
+            </div>
+
+            <div class="analytics-section card">
+                <h3>Weight</h3>
+                <div class="chart-placeholder"></div>
+            </div>
+
+            <div class="analytics-section card">
+                <h3>Steps</h3>
+                <div class="chart-placeholder"></div>
+            </div>
+        </section>
+
+        <section id="fooddb" class="page">
+            <div class="card fooddb-list">
+                <h3>Current database</h3>
+                <ul class="food-items">
+                    <li>
+                        Oats (100g) – 599 cal<br><small>Protein 12g, Carbs 75g, Fats 4g</small>
+                        <span class="actions">✏️ 🗑️</span>
+                    </li>
+                    <li>
+                        Chicken breast (100g) – 450 cal<br><small>Protein 12g, Carbs 75g, Fats 4g</small>
+                        <span class="actions">✏️ 🗑️</span>
+                    </li>
+                    <!-- … -->
+                </ul>
+            </div>
+
+            <form class="card fooddb-form">
+                <h3>Add new food / Edit info</h3>
+                <input type="text" placeholder="Food/meal name">
+                <input type="number" placeholder="Protein (grams)">
+                <input type="number" placeholder="Carbs (grams)">
+                <input type="number" placeholder="Fat (grams)">
+                <input type="number" placeholder="Weight (grams)">
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Save</button>
+                    <button type="reset" class="btn-danger">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Placeholder pages -->
+        <section id="exercise" class="page"><p>Exercise &amp; steps – coming soon.</p></section>
+        <section id="settings" class="page"><p>Settings – coming soon.</p></section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

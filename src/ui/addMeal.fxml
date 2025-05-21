@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>           <!-- deja ai importat -->
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleButton?>
+<VBox spacing="8" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.myapp.nutrition.ui.AddMealController"
+      stylesheets="@styles/style.css">
+
+    <DatePicker fx:id="dpDate" />
+    <!-- Înainte de ListView -->
+    <HBox spacing="8" alignment="CENTER">
+        <children>
+            <ToggleButton fx:id="btnBreakfast" text="Breakfast" />
+            <ToggleButton fx:id="btnLunch"     text="Lunch"     />
+            <ToggleButton fx:id="btnDinner"    text="Dinner"    />
+            <ToggleButton fx:id="btnSnack" text="Snack"     />
+        </children>
+        <padding>
+            <Insets top="4" bottom="4" left="0" right="0"/>
+        </padding>
+    </HBox>
+
+
+    <ListView fx:id="lvPortions" prefHeight="200" />
+
+    <HBox spacing="10">
+        <Button text="Adaugă porție" onAction="#onAddPortion"/>
+        <Button text="Quick Add"      onAction="#onQuickAdd"/>
+        <Button text="Șterge porție"  onAction="#onDeletePortion"/>
+    </HBox>
+
+    <Button text="Salvează" onAction="#onSave"/>
+</VBox>

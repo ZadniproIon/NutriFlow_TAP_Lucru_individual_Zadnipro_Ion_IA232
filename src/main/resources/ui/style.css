@@ -1,0 +1,904 @@
+/* Global css settings */
+:root {
+    --blue:        #0077CC;
+    --white:       #FFFFFF;
+    --gray-card:   #F2F2F2;
+    --border:      #D9D9D9;
+    --blue-border: #0064AB;
+    --shadow:      0 2px 6px rgba(0, 0, 0, 0.15);
+    --radius:      10px;
+    --text:        #000000;
+    --blue-light:  #ECF4FD;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    transition: all 0.2s linear;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white);
+    color: var(--text);
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 20px;
+    font-size: 600;
+}
+
+p {
+    font-size: 16px;
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.card {
+    border: 1px solid var(--border);
+    background-color: var(--gray-card);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+}
+
+button, select {
+    transition: all 0.2s linear;
+}
+
+
+
+
+
+
+
+
+
+
+/* Sidebar css settings */
+#sidebar {
+    background-color: var(--blue);
+    width: fit-content;
+    min-height: 100vh;
+    padding: 0 24px 24px 24px;
+    overflow-y: auto;
+}
+
+#sidebar h1 {
+    color: var(--white);
+    text-align: center;
+    padding-top: 48px;
+    margin-bottom: 48px;
+    font-size: 32px;
+}
+
+#sidebar-buttons-div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#sidebar-buttons-div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    color: var(--white);
+
+    padding: 16px;
+    border-radius: 10px;
+}
+
+#sidebar-buttons-div i {
+    font-size: 24px;
+}
+
+#sidebar-buttons-div > div:hover, #sidebar-buttons-div .active {
+    background-color: var(--white);
+    color: var(--blue);
+
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+
+
+
+
+
+
+
+
+/* */
+#content-window {
+    margin: 0 auto;
+    padding: 48px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#current-date {
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    max-width: fit-content;
+    align-items: center;
+    margin: 0 auto;
+    padding-bottom: 48px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#main-window-content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    display: none;
+}
+
+#main-window-content .first-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+}
+
+
+.calories-card {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 375px;
+    height: 275px;
+}
+
+.calories-card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.calories-card-body .left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 10px solid var(--blue);
+    border-radius: 50%;
+    padding: 32px;
+
+    width: 140px;
+    height: 140px;
+}
+
+.calories-card-body .left-side strong {
+    font-size: 24px;
+}
+
+.calories-card-body .right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.calories-card-body .right-side > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.calories-card-body i {
+    font-size: 24px;
+}
+
+.calories-card-body .fa-flag {
+    color: var(--border);
+}
+
+.calories-card-body .fa-utensils {
+    color: var(--blue);
+}
+
+.calories-card-body .fa-fire {
+    color: orange;
+}
+
+
+
+
+
+
+
+
+
+/**/
+.macros-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 375px;
+    height: 275px;
+}
+
+.macros-card > div {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.macro-info-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.macros-card .contents {
+    display: flex;
+    justify-content: space-between;
+}
+
+.divider {
+    border: none;               /* remove the default */
+    border-top: 10px solid var(--blue);
+    border-radius: 10px;
+    width: 100%;                /* or whatever length you need */
+}
+
+
+
+
+
+
+
+
+.second-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+
+.second-row > div {
+    height: 200px;
+    width: 375px;
+}
+
+.steps-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#steps-card-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 24px;
+}
+#steps-card-steps-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+#steps-card-steps-1 i {
+    font-size: 24px;
+    color: var(--blue);
+}
+
+#steps-card-steps-2 {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 8px;
+}
+
+
+
+
+
+
+.exercise-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#exercise-card-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 24px;
+}
+
+.exercise-card-stat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.exercise-card-stat i {
+    font-size: 24px;
+    color: orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#diary-window-content {
+    width: fit-content;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+}
+
+.diary-card {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 500px;
+}
+
+#diary-card-title-and-formula {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#diary-card-formula {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+#diary-card-formula > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diary-card-meal {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.diary-card-meal-title-and-cal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.diary-card-meal hr {
+    color: var(--border);
+}
+
+.diary-card-food-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.diary-card-food-item i {
+    font-size: 24px;
+    color: var(--border);
+}
+
+
+
+.add-food-card {
+    width: 420px;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#add-food-card-switch {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#add-food-card-switch button {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--white);
+
+    flex: 1;
+
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+#add-food-card-switch .active, #add-food-card-switch button:hover, .add-food-card button:hover {
+    background-color: var(--blue);
+    border-color: var(--blue-border);
+    color: white;
+}
+
+.add-food-card select, .add-food-card input {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.add-food-card .input-div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.macros-info-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.macros-info-div-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add-food-card button {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--white);
+
+    flex: 1;
+
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+
+
+
+#add-food-card-switch-quick-add {
+    display: flex;
+}
+
+
+
+#meals-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fa-square-xmark:hover {
+    color: red;
+    cursor: pointer;
+}
+
+#food-db-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* la sfârşitul style.css */
+.food-db-item {
+    background-color: var(--white);
+    border: 1px solid var(--border);      /* var(--border) = #D9D9D9 */
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+  }
+  
+  .food-db-item:hover {
+    background-color: var(--blue-light);
+  }
+
+  .fa-pen-to-square, .fa-trash {
+    color: var(--border);
+  }
+
+  .fa-pen-to-square:hover {
+    color: var(--text);
+  }
+
+  .fa-trash:hover {
+    color: red;
+  }
+
+
+  /* --- Form Add Food --- */
+.add-food-card {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .add-food-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .add-food-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 16px;
+  }
+  
+  .add-food-form button {
+    flex: 1;
+    padding: 10px 24px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .add-food-form button:hover {
+    background-color: var(--blue-border);
+  }
+
+  #analytics-window-content canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+  }
+
+  /* Containerul de butoane */
+#period-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  /* Stilul de bază pentru toate butoanele */
+  #period-buttons button {
+    padding: 8px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--white);
+    color: var(--text);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    flex: 1;
+  }
+  
+  /* Starea hover pentru butoanele inactivate */
+  #period-buttons button:hover:not(.active) {
+    background-color: var(--blue-light);
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+  
+  /* Botoanele active */
+  #period-buttons button.active {
+    background-color: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+  }
+  
+
+
+
+
+
+/* --- Exercise form --- */
+.exercise-form, .steps-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .exercise-form select,
+  .exercise-form input,
+  .steps-form input {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .exercise-form button,
+  .steps-form button {
+    font-size: 16px;
+    width: 100%;
+    
+    padding: 10px 24px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .exercise-form button:hover,
+  .steps-form button:hover {
+    background-color: var(--blue-border);
+  }
+  
+  /* --- History lists --- */
+  .exercise-history, .steps-history {
+    margin-top: 16px;
+  }
+  
+  .exercise-history ul,
+  .steps-history ul {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-left: 0;
+  }
+  
+  .exercise-history li,
+  .steps-history li {
+    background-color: var(--gray-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .exercise-history li .delete-exercise,
+  .steps-history li .delete-step {
+    cursor: pointer;
+    color: gray;
+  }
+
+
+  /* --- Weight form & history --- */
+.weight-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .weight-form input {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 16px;
+  }
+  
+  .weight-form button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .weight-form button:hover {
+    background-color: var(--blue-border);
+  }
+  
+  .weight-history ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column-reverse; /* cele mai noi jos în sus */
+    gap: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .weight-history li {
+    background-color: var(--gray-card);
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    font-size: 14px;
+  }
+
+  
+  .weight-history li {
+    position: relative;
+    padding-right: 32px; /* loc pentru iconiţă */
+  }
+  
+  .weight-history li .delete-weight {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e74c3c;        /* roşu */
+    cursor: pointer;
+  }
+  
+
+  /* ==== DARK MODE ==== */
+/* ==== DARK MODE (Revizuit) ==== */
+body.dark-mode {
+    /* fundal mai puțin arămos, nu chiar negru total */
+    --white:       #2f2f2f;
+    /* text puțin mai luminos */
+    --text:        #e0e0e0;
+    /* card-urile puțin mai deschise */
+    --gray-card:   #383838;
+    /* borderline mai vizibil */
+    --border:      #4a4a4a;
+    /* albastru mai saturat */
+    --blue:        #3399ff;
+    /* bordură butoane și hover */
+    --blue-border: #007acc;
+    /* nuanță pentru hover pe butoane inactive */
+    --blue-light:  #66b3ff;
+  
+    background-color: var(--white);
+    color: var(--text);
+  }
+  
+  body.dark-mode .card {
+    background-color: var(--gray-card);
+    border-color: var(--border);
+  }
+  
+  body.dark-mode input,
+  body.dark-mode select {
+    background-color: var(--gray-card);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  
+  /* Butoanele active și hover în dark mode */
+  body.dark-mode button,
+  body.dark-mode #period-buttons button,
+  body.dark-mode .add-food-form button,
+  body.dark-mode .settings-form button {
+    background-color: var(--blue);
+    color: var(--white);
+  }
+  
+  body.dark-mode button:hover,
+  body.dark-mode #period-buttons button:hover,
+  body.dark-mode .add-food-form button:hover,
+  body.dark-mode .settings-form button:hover {
+    background-color: var(--blue-border);
+  }
+  
+  
+
+  /* ==== Settings Page Styling ==== */
+#settings-window-content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
+  
+  #settings-window-content .card {
+    width: 700px;               /* să se potrivească cu celelalte pagini */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Inputs pentru calorii, pași și weight */
+  #settings-window-content input[type="number"],
+  #settings-window-content input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 16px;
+    background-color: var(--white);
+    color: var(--text);
+    transition: border-color 0.2s, background-color 0.2s;
+  }
+  
+  #settings-window-content input[type="number"]:focus,
+  #settings-window-content input[type="date"]:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+  
+  /* Toate butoanele din Settings */
+  #settings-window-content button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  #settings-window-content button:hover {
+    background-color: var(--blue-border);
+  }
+  
+  /* Reset All Data buton */
+  #settings-window-content #btn-reset-all {
+    background-color: #e74c3c;
+    color: var(--white);
+  }
+  
+  #settings-window-content #btn-reset-all:hover {
+    background-color: #c0392b;
+  }
+  

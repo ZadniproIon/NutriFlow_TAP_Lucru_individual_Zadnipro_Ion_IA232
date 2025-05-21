@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.myapp.nutrition.ui.SettingsController">
+
+    <center>
+        <GridPane hgap="8" vgap="8">
+            <!-- aici definit corect padding-ul -->
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Calorii țintă pe zi:"  GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfDailyGoal"      GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="\% Carbohidrați:"       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfCarbsRatio"     GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="\% Proteine:"           GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfProteinRatio"   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="\% Grăsimi:"            GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfFatRatio"       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="8" right="8" bottom="8" left="8"/>
+            </padding>
+            <Button fx:id="btnLight"   text="Light"    onAction="#onLightMode"/>
+            <Button fx:id="btnDark"    text="Dark"     onAction="#onDarkMode"/>
+            <Button fx:id="btnSave"    text="Salvează" onAction="#onSave"/>
+            <Button fx:id="btnCancel"  text="Renunță"  onAction="#onCancel"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

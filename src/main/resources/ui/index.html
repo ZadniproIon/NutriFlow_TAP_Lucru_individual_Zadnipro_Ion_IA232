@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NutriFlow - Main</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- în HEAD, sau imediat înainte de script.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+    <div id="app">
+        <!-- Sidebar (left side) -->
+        <div id="sidebar">
+            <h1>NutriFlow</h1>
+            <div id="sidebar-buttons-div">
+                <div id="btn-main" class=""><i class="fa-solid fa-house"></i><p>Main</p></div>
+                <div id="btn-diary" class="active"><i class="fa-solid fa-book"></i><p>Diary</p></div>
+                <div id="btn-fooddatabase"><i class="fa-solid fa-utensils"></i><p>Food database</p></div>
+                <div id="btn-exercise"><i class="fa-solid fa-person-running"></i><p>Exercise and steps</p></div>
+                <div id="btn-analytics"><i class="fa-solid fa-chart-line"></i><p>Analytics</p></div>
+                <div id="btn-settings"><i class="fa-solid fa-gear"></i><p>Settings</p></div>
+            </div>
+        </div>
+
+        <!-- Content (right side) -->
+        <div id="content-window">
+            
+            <!-- Date, will change dinamically -->
+            <h1 id="current-date"><i class="fa-regular fa-circle-left"></i>Today: 21th of May, 2025<i class="fa-regular fa-circle-right"></i></h1>
+
+            <!-- Main page -->
+            <div id="main-window-content">
+                
+                <div class="first-row">
+                    <!-- "Calories" card -->
+                    <div class="card calories-card">
+                        <div>
+                            <h2>Calories</h2>
+                            <p>Remaining = Goal - Food + Exercise</p>
+                        </div>
+
+                        <div class="calories-card-body">
+                            <div class="left-side">
+                                <strong id="calories-remaining">0</strong>
+                                <p id="calories-status">Remaining</p>
+                            </div>
+                            <div class="right-side">
+                                <div>
+                                    <i class="fa-solid fa-flag"></i>
+                                    <p>Base goal<br><strong id="base-goal">0</strong></p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-utensils"></i>
+                                    <p>Food<br><strong id="calories-from-food">0</strong></p>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-fire"></i>
+                                    <p>Exercise<br><strong id="calories-from-exercise">0</strong></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- "Macros" card -->
+                    <div class="card macros-card">
+                        <h2>Macros</h2>
+                        <div>
+
+                            <div class="macro-info-div">
+                                <div class="contents">
+                                    <p>Protein</p>
+                                    <p><span id="macro-protein-current">0</span>/<span id="macro-protein-goal">0</span>g</p>
+                                </div>
+                                <hr class="divider">
+                            </div>
+
+                            <div class="macro-info-div">
+                                <div class="contents">
+                                    <p>Carbs</p>
+                                    <p><span id="macro-carbs-current">0</span>/<span id="macro-carbs-goal">0</span>g</p>
+                                </div>
+                                <hr class="divider">
+                            </div>
+
+                            <div class="macro-info-div">
+                                <div class="contents">
+                                    <p>Fats</p>
+                                    <p><span id="macro-fats-current">0</span>/<span id="macro-fats-goal">0</span>g</p>
+                                </div>
+                                <hr class="divider">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="second-row">
+                    <!-- "Steps" card -->
+                    <div class="card steps-card">
+                        <div id="steps-card-title">
+                            <h2>Steps</h2>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div id="steps-card-steps-1">
+                            <i class="fa-solid fa-person-walking"></i>
+                            <p id="steps-current">0</p>
+                        </div>
+                        <div id="steps-card-steps-2">
+                            <p>Goal: <strong id="steps-goal">0</strong> steps</p>
+                            <hr class="divider">
+                        </div>
+                    </div>
+
+                    <!-- "Exercise" card -->
+                    <div class="card exercise-card">
+                        <div id="exercise-card-title">
+                            <h2>Exercise</h2>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="exercise-card-stat">
+                            <i class="fa-solid fa-fire"></i>
+                            <p id="exercise-calories">0</p>
+                        </div>
+                        <div class="exercise-card-stat">
+                            <i class="fa-solid fa-clock"></i>
+                            <p id="exercise-duration">0:00 hr</p>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+
+            <!-- Diary page -->
+            <div id="diary-window-content">
+                <div class="card diary-card">
+                    <div id="diary-card-title-and-formula">
+                        <h2>Calories remaining</h2>
+                        <div id="diary-card-formula">
+                            <div>
+                                <strong>1980</strong>
+                                <p>Goal</p>
+                            </div>
+                            <p>-</p>
+                            <div>
+                                <strong>1500</strong>
+                                <p>Food</p>
+                            </div>
+                            <p>+</p>
+                            <div>
+                                <strong>350</strong>
+                                <p>Exercise</p>
+                            </div>
+                            <p>=</p>
+                            <div>
+                                <strong>830</strong>
+                                <p>Remaining</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- container gol în care vom injecta din JS sectiunile de meal -->
+                    <div id="meals-container"></div>
+                    <!-- 
+                        <div class="diary-card-meal">
+                        <div class="diary-card-meal-title-and-cal">
+                            <p>Breakfast</p>
+                            <p>990 cal</p>
+                        </div>
+                        <hr>
+                        <div class="diary-card-food-item">
+                            <p>Oats (100 gr) - 599 cal<br>Protein 12g, Carbs: 75g, Fats: 4g</p>
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </div>
+                        <div class="diary-card-food-item">
+                            <p>Oats (100 gr) - 599 cal<br>Protein 12g, Carbs: 75g, Fats: 4g</p>
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </div>
+                    </div>
+
+                    <div class="diary-card-meal">
+                        <div class="diary-card-meal-title-and-cal">
+                            <p>Lunch</p>
+                            <p>990 cal</p>
+                        </div>
+                        <hr>
+                        <div class="diary-card-food-item">
+                            <p>Oats (100 gr) - 599 cal<br>Protein 12g, Carbs: 75g, Fats: 4g</p>
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </div>
+                        <div class="diary-card-food-item">
+                            <p>Oats (100 gr) - 599 cal<br>Protein 12g, Carbs: 75g, Fats: 4g</p>
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </div>
+                    </div>
+
+                    <div class="diary-card-meal">
+                        <div class="diary-card-meal-title-and-cal">
+                            <p>Dinner</p>
+                            <p>990 cal</p>
+                        </div>
+                        <hr>
+                        <div class="diary-card-food-item">
+                            <p>Oats (100 gr) - 599 cal<br>Protein 12g, Carbs: 75g, Fats: 4g</p>
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </div>
+                        <div class="diary-card-food-item">
+                            <p>Oats (100 gr) - 599 cal<br>Protein 12g, Carbs: 75g, Fats: 4g</p>
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </div>
+                    </div>
+
+                    <div class="diary-card-meal">
+                        <div class="diary-card-meal-title-and-cal">
+                            <p>Snack</p>
+                            <p>990 cal</p>
+                        </div>
+                        <hr>
+                        <div class="diary-card-food-item">
+                            <p>Oats (100 gr) - 599 cal<br>Protein 12g, Carbs: 75g, Fats: 4g</p>
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </div>
+                        <div class="diary-card-food-item">
+                            <p>Oats (100 gr) - 599 cal<br>Protein 12g, Carbs: 75g, Fats: 4g</p>
+                            <i class="fa-solid fa-square-xmark"></i>
+                        </div>
+                    </div>
+                    -->
+                    
+                </div>
+
+                <div class="card add-food-card">
+                    <h2>Add food</h2>
+
+                    <div id="add-food-card-switch-search">
+                        <div class="input-div">
+                            <select name="meal" id="meal-select">
+                                <option value="">Select meal</option>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="breakfast">Dinner</option>
+                                <option value="snack">Snack</option>
+                            </select>
+    
+                            <select name="food" id="food-select">
+                                <option value="">Select food</option>
+                                
+                            </select>
+    
+                            <input type="number" id="grams-input" placeholder="Weight (grams)">
+
+                            <div class="macros-info-div">
+                                <div class="macros-info-div-row"><span>Protein:</span><span id="macro-protein">0g</span></div>
+                                <div class="macros-info-div-row"><span>Carbs:</span><span id="macro-carbs">0g</span></div>
+                                <div class="macros-info-div-row"><span>Fats:</span><span id="macro-fats">0g</span></div>
+                                <div class="macros-info-div-row"><span>Calories:</span><span id="macro-calories">0 cal</span></div>
+                            </div>
+
+                            <button id="btn-add-meal">Add food</button>
+                        </div>
+                        
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Analytics page -->
+            <div id="analytics-window-content" style="display: none; flex-direction: column; gap: 48px; align-items: center;">
+
+                <!-- Title is deja în afară -->
+
+                <!-- Select period card -->
+                <div class="card" id="period-card" style="width: 700px; display: flex; flex-direction: column; gap: 16px;">
+                    <h3>Select period</h3>
+                    <div id="period-buttons">
+                        <button data-days="7" class="active">7 days</button>
+                        <button data-days="14">14 days</button>
+                        <button data-days="30">30 days</button>
+                        <button data-days="custom">Custom</button>
+                      </div>
+                      
+                    <input
+                        type="number"
+                        id="period-input"
+                        placeholder="Enter the amount of days"
+                        style="padding: 10px; border: 1px solid var(--border); border-radius: 10px; font-size: 16px;"
+                        hidden
+                        min="1"
+                    >
+                </div>
+  
+
+                <!-- Calories Chart -->
+                <div class="card" style="width: 700px;">
+                    <h3>Calories</h3>
+                    <canvas id="caloriesChart" width="700" height="200"></canvas>
+                </div>
+
+                <!-- Weight Chart -->
+                <div class="card" style="width: 700px;">
+                    <h3>Weight</h3>
+                    <canvas id="weightChart" width="700" height="200"></canvas>
+                </div>
+
+                <!-- Steps Chart -->
+                <div class="card" style="width: 700px;">
+                    <h3>Steps</h3>
+                    <canvas id="stepsChart" width="700" height="200"></canvas>
+                </div>
+
+            </div>
+
+
+            <!-- Food database page -->
+            <div id="fooddatabase-window-content" style="display: none; flex-direction: column; gap: 48px; align-items: center;">
+
+                <!-- Current database -->
+                <div class="card" style="width: 700px; display: flex; flex-direction: column; gap: 24px;">
+                    <h3>Current database</h3>
+
+                    <div id="food-db-container"></div>
+
+                </div>
+
+                <!-- Form: Add new food -->
+                <div class="card add-food-card">
+                    <h3>Add new food</h3>
+                    <div class="add-food-form">
+                        <input type="text" id="new-food-name" placeholder="Food name">
+                        <input type="number" id="new-food-protein" placeholder="Protein (g)">
+                        <input type="number" id="new-food-carbs" placeholder="Carbs (g)">
+                        <input type="number" id="new-food-fats" placeholder="Fats (g)">
+                        <input type="number" id="new-food-weight" placeholder="Weight (g)">
+                        <button id="btn-add-food">Add food</button>
+                    </div>
+                </div>
+  
+
+            </div>
+
+
+            <!-- Exercise and steps page -->
+            <!-- Exercise and steps page -->
+            <div id="exerciseandsteps-window-content" style="display: none; flex-direction: column; gap: 48px; align-items: center;">
+
+                <!-- Exercise tracker -->
+                <div class="card" style="width: 700px; display: flex; flex-direction: column; gap: 16px;">
+                    <h3>Exercise tracker</h3>
+                    <p>Choose an activity, enter duration, then Calculate.</p>
+                
+                    <div class="exercise-form" style="display: flex; flex-direction: column; gap: 12px;">
+                    <select id="exercise-type">
+                        <option value="">Select activity</option>
+                        <option value="running">Running</option>
+                        <option value="swimming">Swimming</option>
+                        <option value="weightlifting">Weight lifting</option>
+                        <option value="cycling">Cycling</option>
+                        <option value="walking">Walking</option>
+                    </select>
+                
+                    <input
+                        type="number"
+                        id="exercise-duration"
+                        placeholder="Duration (minutes)"
+                        style="padding: 10px; border-radius: 10px; border: 1px solid var(--border);"
+                    />
+
+                
+                    <input
+                        type="text"
+                        id="exercise-calories"
+                        placeholder="Calories burned"
+                        disabled
+                        style="padding: 10px; border-radius: 10px; border: 1px solid var(--border); background-color: var(--gray-card);"
+                    >
+                
+                    <button
+                        id="btn-calc-exercise"
+                        style="padding: 10px; border-radius: 10px; border: none; background-color: var(--blue); color: white; font-size: 16px; width: 150px;"
+                    >
+                        Calculate
+                    </button>
+                    </div>
+                
+                    <div class="exercise-history">
+                    <h4>History</h4>
+                    <ul id="exercise-history-list"></ul>
+                    </div>
+                </div>
+  
+            
+                <!-- Steps tracker -->
+                <div class="card" style="width: 700px; display: flex; flex-direction: column; gap: 16px;">
+                <h3>Steps tracker</h3>
+                <p>Enter your steps and Save.</p>
+            
+                <div class="steps-form">
+                    <input type="number" id="steps-input" placeholder="Number of steps">
+                    <button id="btn-save-steps">Save</button>
+                </div>
+            
+                <div class="steps-history">
+                    <h4>History</h4>
+                    <ul id="steps-history-list"></ul>
+                </div>
+                </div>
+
+                <!-- Weight tracker -->
+                <div class="card" style="width: 700px; display: flex; flex-direction: column; gap: 16px;">
+                    <h3>Weight tracker</h3>
+                    <p>Select date and enter your weight.</p>
+
+                    <div class="weight-form">
+                    <input type="date" id="weight-date">
+                    <input type="number" id="weight-input" placeholder="Weight (kg)" step="0.1">
+                    <button id="btn-save-weight">Save</button>
+                    </div>
+
+                    <div class="weight-history">
+                    <h4>History</h4>
+                    <ul id="weight-history-list"></ul>
+                    </div>
+                </div>
+
+            
+            </div>
+  
+
+
+            <!-- Settings page -->
+            <div id="settings-window-content" style="display: none; flex-direction: column; gap: 32px; align-items: center;">
+
+                <!-- 1. Light / Dark Toggle -->
+                <div class="card" style="width: 500px; display: flex; flex-direction: column; gap: 8px;">
+                <h3>Theme</h3>
+                <button id="btn-toggle-theme">Toggle Light / Dark</button>
+                </div>
+            
+                <!-- 2. Calorie Goal -->
+                <div class="card" style="width: 500px; display: flex; flex-direction: column; gap: 8px;">
+                <h3>Calorie Goal</h3>
+                <input type="number" id="input-calorie-goal" placeholder="Enter daily calorie goal">
+                <button id="btn-save-calorie-goal">Save</button>
+                </div>
+            
+                <!-- 3. Steps Goal -->
+                <div class="card" style="width: 500px; display: flex; flex-direction: column; gap: 8px;">
+                <h3>Steps Goal</h3>
+                <input type="number" id="input-steps-goal" placeholder="Enter daily steps goal">
+                <button id="btn-save-steps-goal">Save</button>
+                </div>
+            
+                <!-- 4. Reset All Data -->
+                <div class="card" style="width: 500px; display: flex; flex-direction: column; gap: 8px;">
+                <h3>Reset</h3>
+                <button id="btn-reset-all" style="background-color: #e74c3c; color: white;">Reset All Data</button>
+                </div>
+            
+            </div>
+  
+        </div>
+    </div>
+
+    
+
+    
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

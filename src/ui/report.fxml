@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.myapp.nutrition.ui.ReportController">
+    <BarChart fx:id="barChart" title="Calorii săptămânal">
+        <xAxis>
+            <CategoryAxis label="Ziua" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Calorii" />
+        </yAxis>
+    </BarChart>
+</VBox>

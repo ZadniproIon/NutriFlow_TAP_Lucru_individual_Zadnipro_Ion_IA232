@@ -1,0 +1,9 @@
+{
+  "dailyCalorieGoal": 2000,
+  "macroRatio": {
+    "protein": 0.20,
+    "carbs":   0.50,
+    "fat":     0.30
+  },
+  "theme": "light"
+}

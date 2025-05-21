@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.myapp.nutrition.ui.ManageFoodsController"
+      stylesheets="@styles/style.css">
+
+    <ListView fx:id="lvFoods" prefHeight="200" />
+
+    <HBox spacing="8">
+        <Label text="Nume:"/>
+        <TextField fx:id="tfName" promptText="Ex: Banana"/>
+    </HBox>
+    <HBox spacing="8">
+        <Label text="Proteine (g/100g):"/>
+        <TextField fx:id="tfProtein" promptText="Ex: 1.1"/>
+    </HBox>
+    <HBox spacing="8">
+        <Label text="Carbohidrați (g/100g):"/>
+        <TextField fx:id="tfCarbs"   promptText="Ex: 23"/>
+    </HBox>
+    <HBox spacing="8">
+        <Label text="Grăsimi (g/100g):"/>
+        <TextField fx:id="tfFats"    promptText="Ex: 0.3"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Button text="Adaugă aliment" onAction="#onAddFood"/>
+        <Button text="Șterge aliment" onAction="#onDeleteFood"/>
+    </HBox>
+</VBox>
